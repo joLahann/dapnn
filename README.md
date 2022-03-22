@@ -2,6 +2,7 @@
 
 This is the source code for the paper _Detection of Anomal Process Behavior through LSTM Neural Networks_ that is currently under review for the BPM 2022. 
 
+## Content
 This repository contains the following notebooks:
 - 01_log_conversion.ipynb: Converts the event logs into csv format to make it easier to load them.
 - 02_data_processing.ipynb: Handles the processing, including encoding of attributes, creation of sliding windows, adding of start and end events, generation of data loaders.
@@ -13,9 +14,21 @@ This repository contains the following notebooks:
 - training.py. A helper script that can be used to run the training from terminal (Can take ~20 h).
 - prediction_params.py. A helper script that can be used to train multiple prediction models with different hyer parameter configurations (Can take ~10 h). 
 
+
+## Installation
 In order to run the notebooks, it is required to install fastai and pm4py. The easiest way to get everything running is with anaconda.
-- conda create -n dapnn 
-- conda activate dapnn
-- conda install -c pytorch -c fastai fastai=1.0.61
-- pip install pm4py
+```
+conda create -n dapnn python=3.9.
+conda activate dapnn
+conda install -c pytorch -c fastai fastai=1.0.61
+pip install pm4py
+pip install -e .
+
+```
+To run the jupyter notebooks you also have to create a jupyter kernel:
+```
+python -m ipykernel install --user --name dapnn
+```
+
+The repository is build with the nbdev package -> https://nbdev.fast.ai/.
 
