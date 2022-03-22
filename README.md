@@ -2,7 +2,7 @@
 
 This is the source code for the paper _Detection of Anomal Process Behavior through LSTM Neural Networks_ that is currently under review for the BPM 2022. 
 
-This repository contains the following Notebooks:
+This repository contains the following notebooks:
 - 01_log_conversion.ipynb: Converts the event logs into csv format to make it easier to load them.
 - 02_data_processing.ipynb: Handles the processing, including encoding of attributes, creation of sliding windows, adding of start and end events, generation of data loaders.
 - 03_anomaly.ipynb: Includes the anomaly detection algorithm, i.e. the prediction model, the loss functions and the anomaly score calculation and classification, as well as the metric computation.
