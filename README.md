@@ -1,6 +1,6 @@
 # DAPNN
 
-This is the source code for the paper _Detection of Anomal Process Behavior through LSTM Neural Networks_ that is currently under review for the BPM 2022. 
+This is the source code for the paper _Detection of Anomal Process Instances through LSTM Neural Networks_ that is currently under review for the BPM 2022. 
 
 ## Content
 This repository contains the following notebooks:
