@@ -3,4 +3,6 @@ __pycache__
 .gitconfig
 .gitattributes
 data/orig
+models
+tmp
 docs
