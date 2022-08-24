@@ -2,7 +2,7 @@
 
 __all__ = ['training_dl', 'HideOutput', 'training_loop', 'train_validate', 'process_test', 'predict_next_step',
            'nsp_accuracy', 'attr_dict', 'get_attr', 'MultivariateModel', 'get_metrics', 'multi_loss_sum', 'my_loss',
-           'my_metric', 'multivariate_anomaly_score', 'get_thresholds', 'multivariate_anomalies']
+           'my_metric', 'predict_next_step', 'multivariate_anomaly_score', 'get_thresholds', 'multivariate_anomalies']
 
 # Cell
 
@@ -167,6 +167,19 @@ def my_loss(p,y): return F.cross_entropy(p[0],y[0])
 def my_metric(p,y): return accuracy(p[0],y[0])
 
 # Cell
+def predict_next_step(o,m,ws=5):
+    wds,idx=partial(windows_fast,ws=ws)(o.xs, o.event_ids)
+    res= []
+    with torch.no_grad():
+        for b in DataLoader(wds,bs=8*1024,shuffle=False):
+            h= m(b.long().cuda())
+            h= tuple([i.cpu() for i in h])
+            res.append(h)
+
+    res =tuple([torch.cat([k[i] for k in res] ) for i in range(len(o.cat_names))])
+    return res,idx
+
+# Cell
 def multivariate_anomaly_score(res,o,idx,cols):
     score_df=pd.DataFrame()
 
@@ -183,7 +196,7 @@ def multivariate_anomaly_score(res,o,idx,cols):
     return score_df
 
 # Cell
-def get_thresholds(col,act_threshold=0.995,attr_threshold=0.99):
+def get_thresholds(col,act_threshold=0.964,attr_threshold=0.9971):
     """
     Defines a custom threshold function
     """
