@@ -1,6 +1,7 @@
 # DAPNN
 
-This is the source code for the paper _Detection of Anomal Process Behavior through Neural Networks_ that is currently under review for the BPM 2022. 
+This is the source code for the paper _Detection of Anomal Process Behavior through Neural Networks_ that is currently under review for the ML4PM 2022
+THIRD INTERNATIONAL WORKSHOP ON LEVERAGING MACHINE LEARNING IN PROCESS MINING. 
 
 This repository contains the following Notebooks:
 - 01_log_conversion.ipynb: Converts the event logs into csv format to make it easier to load them.
