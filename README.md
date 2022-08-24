@@ -16,6 +16,7 @@ This repository contains the following Notebooks:
 
 In order to run the notebooks, it is required to install fastai and pm4py. The easiest way to get everything running is with anaconda.
 ```
+  git clone https://github.com/joLahann/dapnn/blob/main/README.md
   conda create -n dapnn 
   conda activate dapnn
   conda install -c pytorch -c fastai fastai=1.0.61
